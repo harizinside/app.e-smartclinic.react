@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import preload from 'vite-plugin-preload'
 import webfontDownload from 'vite-plugin-webfont-dl'
 import { compression } from 'vite-plugin-compression2'
+import path from "node:path"
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,4 +15,9 @@ export default defineConfig({
     ]),
     compression()
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
